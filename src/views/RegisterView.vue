@@ -1,12 +1,12 @@
 <template>
     <div>
-        registir Pages
+        RegisterView
     </div>
 </template>
 
 <script>
 export default {
-    name: 'register',
+    name: 'KhanVue3RegisterView',
 
     data() {
         return {

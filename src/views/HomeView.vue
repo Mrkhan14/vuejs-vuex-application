@@ -1,9 +1,29 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+<template>
+    <div>
+        Home
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'KhanVue3Home',
+
+    data() {
+        return {
+            
+        };
+    },
+
+    mounted() {
+        
+    },
+
+    methods: {
+        
+    },
+};
 </script>
 
-<template>
-  <main>
-    <TheWelcome />
-  </main>
-</template>
+<style lang="scss" scoped>
+
+</style>
