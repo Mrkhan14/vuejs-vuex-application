@@ -1,13 +1,15 @@
 <template>
-    <div>
-        login
+    <div  class="text-center">
+        <login></login>
     </div>
 </template>
 
 <script>
-export default {
-    name: 'KhanVue3LoginView',
+import login from "@/components/Login.vue";
 
+export default{
+    name: 'KhanVue3LoginView',
+    components: { login },
     data() {
         return {
             

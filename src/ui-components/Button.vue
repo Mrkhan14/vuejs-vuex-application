@@ -1,15 +1,12 @@
 <template>
-    <div class="text-center">
-       <register></register>
-    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">
+        <slot></slot>
+    </button>
 </template>
 
 <script>
-import Register from '../components/Register.vue';
-
 export default {
-    components: { Register },
-    name: 'KhanVue3RegisterView',
+    name: 'Button',
 
     data() {
         return {
