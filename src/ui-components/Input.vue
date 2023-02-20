@@ -12,6 +12,8 @@ export default {
         label: String,
         type: String,
         placeholder: String
+
+        
     },
     data() {
         return {
