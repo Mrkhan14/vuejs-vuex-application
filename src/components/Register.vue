@@ -4,10 +4,12 @@
         <form>
             <img :src="logo" alt="logo"  @click="toHomeHandler">
             <h1 class="h3 mb-3 fw-normal">Register</h1>
+
             <Input :type="'text'" :label="'Name'" ></Input>           
             <Input :type="'email'" :label="'Email'" ></Input>           
-            <Input :type="'password'" :label="'Password'"></Input>          
-            <Button type="submit">Sign in</Button>
+            <Input :type="'password'" :label="'Password'"></Input>     
+
+            <Button type="submit" :disabled="isLoading" @click="submitHandler" >Sign in</Button>
         </form>
     </main>
 </template>
@@ -22,13 +24,20 @@ export default {
             logo
         };
     },
-
+    computed: {
+        isLoading() {
+            return this.$store.state.auth.isLoading;
+        }
+    },
     mounted() {
         
     },
 
     methods: {
-        
+        submitHandler(e){
+            e.preventDefault();
+            this.$store.commit('setLoading')
+        }
     },
 };
 </script>
