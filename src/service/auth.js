@@ -1,6 +1,6 @@
 import axios from './axios'
 
- const AuthService = {
+const AuthService = {
     register(user) {
         return axios.post('/users', {user})
     },
