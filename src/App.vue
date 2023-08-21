@@ -11,27 +11,25 @@
 </template>
 
 <script>
-import {Navbar} from '@/components'
+import { Navbar } from '@/components'
 import { RouterView } from 'vue-router';
 export default {
   name: 'KhanVue3App',
   components: { Navbar },
   data() {
     return {
-      
+
     };
   },
 
   mounted() {
-    
+
   },
 
   methods: {
-    
+
   },
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
