@@ -17,9 +17,7 @@ export default {
   name: 'KhanVue3App',
   components: { Navbar },
   data() {
-    return {
-
-    };
+    return {};
   },
 
   mounted() {

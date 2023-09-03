@@ -1,61 +1,60 @@
 <template>
-
-    <main class="form-signin w-25 m-auto">
+    <main class="form-signin w-25 m-auto mt-5">
         <form>
-            <img :src="logo" alt="logo"  @click="toHomeHandler">
-            <h1 class="h3 mb-3 fw-normal">Register</h1>
-            <Input :type="'text'" :label="'Name'"  v-model="username"></Input>           
-            <Input :type="'email'" :label="'Email'" v-model="email"></Input>           
-            <Input :type="'password'" :label="'Password'" v-model="password"></Input>     
+            <img :src="logo" alt="logo" style="width: 100px; cursor: pointer" @click="toHomeHandler" />
+            <h1 class="h3 mb-3 fw-normal mt-3">Register</h1>
 
-            <Button type="submit" :disabled="isLoading" @click="submitHandler" >Sign in</Button>
+            <!-- <ValidationError v-if="validationErrors" :validationErrors="validationErrors" /> -->
+
+            <Input :label="'Name'" :type="'text'" v-model="username" />
+            <Input :label="'Email address'" :type="'email'" v-model="email" />
+            <Input :label="'Password'" :type="'password'" v-model="password" />
+
+            <Button type="submit" :disabled="isLoading" @click="submitHandler">Register</Button>
         </form>
     </main>
 </template>
 
 <script>
-import {logo} from '../contstants'
+import { mapState } from 'vuex'
+import { logo } from '../contstants'
+// import ValidationError from '@/components/ValidationError.vue'
 export default {
-    name: 'Register',
-
     data() {
         return {
             logo,
             username: '',
             email: '',
             password: '',
-        };
-    },
-    computed: {
-        isLoading() {
-            return this.$store.state.auth.isLoading;
         }
     },
-    mounted() {
-        
+    components: {
+        // ValidationError,
     },
-
+    computed: {
+        ...mapState({
+            isLoading: state => state.auth.isLoading,
+            validationErrors: state => state.auth.errors,
+        }),
+    },
     methods: {
-        submitHandler(e){
-            e.preventDefault();
-            // this.$store.commit('registerStart')
+        submitHandler(e) {
+            e.preventDefault()
             const data = {
-                username: "axadaa12",
-                email: "axadaa22@mail.ru",
-                password: "axad1322",
+                username: this.username,
+                email: this.email,
+                password: this.password,
             }
             this.$store
                 .dispatch('register', data)
-                .then(user => 
+                .then(user => {
                     console.log('USER', user)
-                )
-                .catch(err => console.log('Error', err))
-
-        }
+                    this.$router.push({ name: 'home' })
+                })
+                .catch(err => console.log('ERROR', err))
+        },
     },
-};
+}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style></style>
