@@ -4,7 +4,7 @@
             <img :src="logo" alt="logo" style="width: 100px; cursor: pointer" @click="toHomeHandler" />
             <h1 class="h3 mb-3 fw-normal mt-3">Register</h1>
 
-            <!-- <ValidationError v-if="validationErrors" :validationErrors="validationErrors" /> -->
+            <ValidationError v-if="validationErrors" :validationErrors="validationErrors" />
 
             <Input :label="'Name'" :type="'text'" v-model="username" />
             <Input :label="'Email address'" :type="'email'" v-model="email" />
@@ -18,7 +18,7 @@
 <script>
 import { mapState } from 'vuex'
 import { logo } from '../contstants'
-// import ValidationError from '@/components/ValidationError.vue'
+import ValidationError from '@/components/ValidationError.vue'
 export default {
     name: 'Register',
     data() {
@@ -30,7 +30,7 @@ export default {
         }
     },
     components: {
-        // ValidationError,
+        ValidationError,
     },
     computed: {
         ...mapState({
@@ -38,6 +38,14 @@ export default {
             validationErrors: state => state.auth.errors,
         }),
     },
+    // computeds: {
+    //     isLoading() {
+    //         return this.$store.state.auth.isLoading
+    //     },
+    //     validationErrors() {
+    //         return this.$store.state.auth.validationErrors
+    //     }
+    // },
     methods: {
         submitHandler(e) {
             e.preventDefault()
