@@ -20,6 +20,7 @@ import { mapState } from 'vuex'
 import { logo } from '../contstants'
 // import ValidationError from '@/components/ValidationError.vue'
 export default {
+    name: 'Register',
     data() {
         return {
             logo,
@@ -56,5 +57,4 @@ export default {
     },
 }
 </script>
-
 <style></style>
