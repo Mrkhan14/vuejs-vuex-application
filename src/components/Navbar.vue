@@ -6,11 +6,11 @@
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
             <template v-if="isLoggedIn">
                 <RouterLink class="me-3 py-2 text-dark text-decoration-none" :to="{ name: 'home' }">
-                    <div> {{ user.username }}</div>
-                    <div>{{ user.email }}</div>
+                    <div> {{ curretUser.username }}</div>
+                    <div>{{ curretUser.email }}</div>
                 </RouterLink>
             </template>
-            <template v-if="!isLoggedIn">
+            <template v-if="isAnonymous">
                 <RouterLink class="me-3 py-2 text-dark text-decoration-none" :to="{ name: 'login' }">Login</RouterLink>
                 <RouterLink class="me-3 py-2 text-dark text-decoration-none" :to="{ name: 'register' }">Register
                 </RouterLink>
@@ -20,8 +20,10 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 import { logo } from '../contstants'
+import { gettersTypes } from "./../modules/type"
+
 export default {
     name: 'Navbar',
     data() {
@@ -35,10 +37,11 @@ export default {
     },
 
     computed: {
-        ...mapState({
-            user: state => state.auth.user,
-            isLoggedIn: state => state.auth.isLoggedIn
-        })
+        ...mapGetters({
+            curretUser: gettersTypes.curretUser,
+            isLoggedIn: gettersTypes.isLoggedIn,
+            isAnonymous: gettersTypes.isAnonymous
+        }),
     },
 
     methods: {
