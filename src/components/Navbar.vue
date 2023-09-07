@@ -22,7 +22,6 @@
 
 <script>
 import { mapState } from 'vuex';
-
 import { logo } from '../contstants'
 export default {
     name: 'Navbar',
