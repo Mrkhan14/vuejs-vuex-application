@@ -38,14 +38,6 @@ export default {
             validationErrors: state => state.auth.errors,
         }),
     },
-    // computeds: {
-    //     isLoading() {
-    //         return this.$store.state.auth.isLoading
-    //     },
-    //     validationErrors() {
-    //         return this.$store.state.auth.validationErrors
-    //     }
-    // },
     methods: {
         submitHandler(e) {
             e.preventDefault()
