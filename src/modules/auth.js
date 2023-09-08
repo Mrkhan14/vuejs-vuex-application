@@ -57,6 +57,22 @@ const mutations = {
         state.errors = payload.errors
         state.isLoggedIn = false
     },
+
+    // User
+    curretUserStart(state) {
+        state.isLoading = true
+    },
+    curretUserSuccess(state, payload) {
+        state.isLoading = false
+        state.user = payload
+        state.isLoggedIn = true
+    },
+    curretUserFailure(state) {
+        state.isLoading = false
+        state.user = null
+        state.isLoggedIn = false
+    }
+
 }
 
 const actions = {
@@ -96,6 +112,21 @@ const actions = {
                 })
         })
     },
+
+    // curretUser
+
+    getUser(context) {
+        return new Promise((resolve) => {
+            context.commit('curretUserStart');
+            AuthService.getUser()
+                .then(response => {
+                    context.commit('curretUserSuccess', response.data.user);
+                    resolve(response.data.user);
+                })
+                .catch(() => context.commit('curretUserFailure'))
+        })
+    }
+
 }
 
 export default {
