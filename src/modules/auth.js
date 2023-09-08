@@ -1,4 +1,4 @@
-import { setItem } from "../helpers/persistaneStorage"
+import { removeItem, setItem } from "../helpers/persistaneStorage"
 import AuthService from "../service/auth";
 import { gettersTypes } from "./type"
 
@@ -71,8 +71,13 @@ const mutations = {
         state.isLoading = false
         state.user = null
         state.isLoggedIn = false
-    }
+    },
 
+    // Logout
+    logout(state) {
+        state.user = null
+        state.isLoggedIn = false
+    }
 }
 
 const actions = {
@@ -114,7 +119,6 @@ const actions = {
     },
 
     // curretUser
-
     getUser(context) {
         return new Promise((resolve) => {
             context.commit('curretUserStart');
@@ -125,7 +129,14 @@ const actions = {
                 })
                 .catch(() => context.commit('curretUserFailure'))
         })
-    }
+    },
+
+    // Logout
+    logout(context) {
+        context.commit('logout');
+        removeItem('token')
+    },
+
 
 }
 

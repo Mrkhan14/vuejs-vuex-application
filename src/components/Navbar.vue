@@ -9,6 +9,7 @@
                     <div> {{ curretUser.username }}</div>
                     <div>{{ curretUser.email }}</div>
                 </RouterLink>
+                <a href="#" class="me-3 py-2 text-dark text-decoration-none" @click="logout">Logout</a>
             </template>
             <template v-if="isAnonymous">
                 <RouterLink class="me-3 py-2 text-dark text-decoration-none" :to="{ name: 'login' }">Login</RouterLink>
@@ -48,6 +49,9 @@ export default {
         toHomeHandler() {
             return this.$router.push('/')
         },
+        logout() {
+            return this.$store.dispatch("logout")
+        }
     },
 };
 </script>
