@@ -44,7 +44,6 @@ export default {
             isAnonymous: gettersTypes.isAnonymous
         }),
     },
-
     methods: {
         toHomeHandler() {
             return this.$router.push('/')
