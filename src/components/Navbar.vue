@@ -20,6 +20,8 @@
     </div>
 </template>
 
+
+
 <script>
 import { mapState, mapGetters } from 'vuex';
 import { logo } from '../contstants'
