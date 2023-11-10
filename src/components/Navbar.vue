@@ -3,6 +3,7 @@
         <a class="d-flex align-items-center text-dark text-decoration-none">
             <img :src="logo" alt="logo" @click="toHomeHandler">
         </a>
+
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
             <template v-if="isLoggedIn">
                 <RouterLink class="me-3 py-2 text-dark text-decoration-none" :to="{ name: 'home' }">
@@ -11,9 +12,17 @@
                 </RouterLink>
                 <a href="#" class="me-3 py-2 text-dark text-decoration-none" @click="logout">Logout</a>
             </template>
+
             <template v-if="isAnonymous">
-                <RouterLink class="me-3 py-2 text-dark text-decoration-none" :to="{ name: 'login' }">Login</RouterLink>
-                <RouterLink class="me-3 py-2 text-dark text-decoration-none" :to="{ name: 'register' }">Register
+                <RouterLink
+                    class="me-3 py-2 text-dark text-decoration-none"
+                    :to="{ name: 'login' }">
+                    Login
+                </RouterLink>
+                <RouterLink
+                    class="me-3 py-2 text-dark text-decoration-none"
+                    :to="{ name: 'register' }">
+                    Register
                 </RouterLink>
             </template>
         </nav>
@@ -23,7 +32,7 @@
 
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import {  mapGetters } from 'vuex';
 import { logo } from '../contstants'
 import { gettersTypes } from "./../modules/type"
 

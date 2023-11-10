@@ -1,7 +1,6 @@
 import { removeItem, setItem } from "../helpers/persistaneStorage"
 import AuthService from "../service/auth";
 import { gettersTypes } from "./type"
-
 const state = {
     isLoading: false,
     user: null,
@@ -20,7 +19,6 @@ const getters = {
         return state.isLoggedIn === false
     }
 }
-
 
 const mutations = {
     registerStart(state) {
@@ -136,10 +134,7 @@ const actions = {
         context.commit('logout');
         removeItem('token')
     },
-
-
 }
-
 export default {
     state,
     mutations,

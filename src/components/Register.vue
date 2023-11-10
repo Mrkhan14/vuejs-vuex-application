@@ -1,16 +1,29 @@
 <template>
     <main class="form-signin w-25 m-auto mt-5">
         <form>
-            <img :src="logo" alt="logo" style="width: 100px; cursor: pointer" @click="toHomeHandler" />
+            <img
+                :src="logo"
+                alt="logo" style="width: 100px; cursor: pointer"
+                @click="toHomeHandler"
+            />
             <h1 class="h3 mb-3 fw-normal mt-3">Register</h1>
 
-            <ValidationError v-if="validationErrors" :validationErrors="validationErrors" />
+            <ValidationError
+                v-if="validationErrors"
+                :validationErrors="validationErrors"
+            />
 
             <Input :label="'Name'" :type="'text'" v-model="username" />
             <Input :label="'Email address'" :type="'email'" v-model="email" />
             <Input :label="'Password'" :type="'password'" v-model="password" />
 
-            <Button type="submit" :disabled="isLoading" @click="submitHandler">Register</Button>
+            <Button
+                type="submit"
+                :disabled="isLoading"
+                @click="submitHandler"
+            >
+                Register
+            </Button>
         </form>
     </main>
 </template>
