@@ -1,6 +1,6 @@
 <template>
     <div class="text-center">
-       <register></register>
+        <register></register>
     </div>
 </template>
 
@@ -13,20 +13,18 @@ export default {
 
     data() {
         return {
-            
+
         };
     },
 
     mounted() {
-        
+
     },
 
     methods: {
-        
+
     },
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

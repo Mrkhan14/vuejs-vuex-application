@@ -1,39 +1,30 @@
 <template>
     <div>
-       <h1> Home</h1>
+        <h1> Home</h1>
+        <div class="row">
+            <articles-card v-for="article in data" :articleProps="article" :key="article.id">
+            </articles-card>
+        </div>
     </div>
 </template>
 
 <script>
-import store from '../store';
-import Button from '../ui-components/Button.vue';
-
+import { mapState } from 'vuex';
+import { ArticlesCard } from "../components/index"
 export default {
-    components: { Button },
-    name: 'KhanVue3Home',
-
-    data() {
-        return {
-            
-        };
+    name: 'home',
+    components: { ArticlesCard },
+    computed: {
+        ...mapState({
+            data: state => state.articles.data,
+            isLoading: state => state.articles.isLoading,
+            error: state => state.articles.error
+        })
     },
-
     mounted() {
-        
+        this.$store.dispatch('articles')
     },
-
-    methods: {
-       
-    },
-
-    computed:{
-        counterAA() {
-            return this.$store.state.count
-        }
-    }
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
