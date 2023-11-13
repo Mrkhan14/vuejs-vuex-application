@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ articleProps.title }}</h5>
                 <p class="card-text">{{ articleProps.description }}</p>
-                <p class="text-muted">{{ articleProps.createdAt }}</p>
+                <p class="text-muted">{{ new Date(articleProps.createdAt).toLocaleString('uzb') }}</p>
                 <a href="#" class="btn btn-primary mr-3">Go somewhere</a>
                 <a href="#" class="btn btn-danger">Go somewhere</a>
             </div>

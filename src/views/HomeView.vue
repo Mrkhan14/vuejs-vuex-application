@@ -2,7 +2,12 @@
     <div>
         <h1> Home</h1>
         <div class="row">
-            <articles-card v-for="article in data" :articleProps="article" :key="article.id">
+            <Spinner v-if="isLoading" class="offset-md-6"></Spinner>
+            <articles-card
+                v-else
+                v-for="article in data"
+                :articleProps="article"
+                :key="article.id">
             </articles-card>
         </div>
     </div>
