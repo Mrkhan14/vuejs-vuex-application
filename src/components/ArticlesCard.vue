@@ -4,11 +4,11 @@
             <img class="card-img-top" src="./../../public/Screenshot_1.png"
                 style="height: 280px; width: 100%; display: block;">
             <div class="card-body">
-                <h5 class="card-title">{{ articleProps.title }}</h5>
-                <p class="card-text">{{ articleProps.description }}</p>
+                <h5 class="card-title">{{ articleProps.title.slice(0, 50) }}...</h5>
+                <p class="card-text">{{ articleProps.description.slice(0, 100) }}...</p>
                 <p class="text-muted">{{ new Date(articleProps.createdAt).toLocaleString('uzb') }}</p>
-                <a href="#" class="btn btn-primary mr-3">Go somewhere</a>
-                <a href="#" class="btn btn-danger">Go somewhere</a>
+                <button @click="navigeteHendler" class="btn btn-primary" style="margin-right: 10px;">Show</button>
+                <a href="#" class="btn btn-danger">Delet</a>
             </div>
         </div>
     </div>
@@ -21,6 +21,11 @@ export default {
             type: Object,
             required: true
         }
-    }
+    },
+    methods: {
+        navigeteHendler(){
+            return this.$router.push(`/article/${this.articleProps.slug}`)
+        }
+    },
 }
 </script>
