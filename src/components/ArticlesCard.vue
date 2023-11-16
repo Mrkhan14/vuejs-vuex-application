@@ -8,12 +8,15 @@
                 <p class="card-text">{{ articleProps.description.slice(0, 100) }}...</p>
                 <p class="text-muted">{{ new Date(articleProps.createdAt).toLocaleString('uzb') }}</p>
                 <button @click="navigeteHendler" class="btn btn-primary" style="margin-right: 10px;">Show</button>
-                <a href="#" class="btn btn-danger">Delet</a>
+                <button
+                    v-if="articleProps.author.username == user.username"
+                class="btn btn-danger">Delet</button>
             </div>
         </div>
     </div>
 </template>
 <script>
+import { mapState } from 'vuex';
 export default {
     name: 'ArticlesCord',
     props: {
@@ -21,6 +24,11 @@ export default {
             type: Object,
             required: true
         }
+    },
+    computed: {
+        ...mapState({
+            user: state => state.auth.user,
+        })
     },
     methods: {
         navigeteHendler(){
