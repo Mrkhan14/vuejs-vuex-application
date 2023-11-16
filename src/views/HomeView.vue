@@ -2,7 +2,7 @@
     <div>
         <h1> Home</h1>
         <div class="row">
-            <Spinner v-if="isLoading" class="offset-md-6"></Spinner>
+            <Loader v-if="isLoading" class="offset-md-6"></Loader>
             <articles-card
                 v-else
                 v-for="article in data"

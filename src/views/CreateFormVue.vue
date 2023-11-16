@@ -1,15 +1,15 @@
 <template>
 	<div>
-		<CraeteForm/>
+		<CreateForm/>
 	</div>
 </template>
 
 <script>
-import{ CraeteForm} from '@/components/'
+import{ CreateForm} from '@/components/'
 import {mapState} from 'vuex'
 export default {
 	components: {
-		CraeteForm,
+		CreateForm,
 	},
 }
 </script>

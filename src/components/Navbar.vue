@@ -10,7 +10,7 @@
                     <div> {{ curretUser.username }}</div>
                     <div>{{ curretUser.email }}</div>
                 </RouterLink>
-                <RouterLink class="btn btn-primary me-3 py-2 text-dark text-decoration-none" :to="{ name: 'crate-article' }">
+                <RouterLink class="btn btn-primary me-3 py-2 text-dark text-decoration-none" :to="{ name: 'create-article' }">
                     Craete Article
                 </RouterLink>
                 <a href="#" class="btn btn-success me-3 py-2 text-dark text-decoration-none" @click="logout">Logout</a>
