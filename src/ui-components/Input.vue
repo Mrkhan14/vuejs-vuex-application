@@ -11,7 +11,6 @@
         <label :for="label">{{ label }}</label>
     </div>
 </template>
-
 <script>
 export default {
     name: 'Input',
