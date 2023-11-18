@@ -19,8 +19,6 @@ export default {
         type: String,
         modelValue: [String, Number]
     },
-
-
     methods: {
         updateInput(e){
             this.$emit('update:modelValue',  e.target.value)
