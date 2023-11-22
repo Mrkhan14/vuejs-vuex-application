@@ -9,8 +9,13 @@
                 <p class="text-muted">{{ new Date(articleProps.createdAt).toLocaleString('uzb') }}</p>
                 <button @click="navigeteHendler" class="btn btn-primary" style="margin-right: 10px;">Show</button>
                 <button
+                    @click="deleteArticle"
                     v-if="articleProps.author.username == user.username"
-                class="btn btn-danger">Delet</button>
+                    class="btn btn-danger"
+                    :disabled="isLoading"
+                >
+                    Delet
+                </button>
             </div>
         </div>
     </div>
@@ -28,11 +33,17 @@ export default {
     computed: {
         ...mapState({
             user: state => state.auth.user,
+            isLoading: state => state.control.isLoading,
         })
     },
     methods: {
         navigeteHendler(){
             return this.$router.push(`/article/${this.articleProps.slug}`)
+        },
+        deleteArticle(){
+            this.$store.dispatch('deleteArticle', this.articleProps.slug)
+            .then(() => this.$store.dispatch('articles'))
+            // this.$store.dispatch('articles')
         }
     },
 }

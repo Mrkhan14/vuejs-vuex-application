@@ -64,6 +64,7 @@ export default {
 			this.$store.dispatch('createArticle', article);
 			this.$router.push({ name: 'home' })
 			console.log(article);
+			// this.$store.dispatch('articles')
 		}
 	}
 }
