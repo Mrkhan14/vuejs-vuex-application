@@ -9,6 +9,16 @@
                 <p class="text-muted">{{ new Date(articleProps.createdAt).toLocaleString('uzb') }}</p>
                 <button @click="navigeteHendler" class="btn btn-primary" style="margin-right: 10px;">Show</button>
                 <button
+                    style="margin-right: 10px;"
+                    @click="navigeteEditHendler"
+                    v-if="articleProps.author.username == user.username"
+                    class="btn btn-primary"
+                    :disabled="isLoading"
+                >
+                    Edit
+                </button>
+
+                <button
                     @click="deleteArticle"
                     v-if="articleProps.author.username == user.username"
                     class="btn btn-danger"
@@ -44,6 +54,9 @@ export default {
             this.$store.dispatch('deleteArticle', this.articleProps.slug)
             .then(() => this.$store.dispatch('articles'))
             // this.$store.dispatch('articles')
+        },
+        navigeteEditHendler(){
+            return this.$router.push(`/edit-article/${this.articleProps.slug}`)
         }
     },
 }
