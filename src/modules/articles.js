@@ -56,6 +56,17 @@ const actions = {
 				.catch(() => context.commit('getArticlesFailure'))
 		})
 	},
+	updatedArticle(context, data){
+		return new Promise(resolve => {
+			context.commit('getArticleDetailStart')
+			ArticleService.updatedArticle(data.article, data.slug)
+			.then(response => {
+				context.commit('getArticleDetailSuccess', response.data.article)
+				resolve(response.data.article)
+			})
+			.catch(() => context.commit('getArticlesFailure'))
+		})
+	}
 }
 
 export default {

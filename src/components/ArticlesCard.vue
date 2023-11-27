@@ -1,7 +1,8 @@
 <template>
     <div class="col col-md-4">
         <div class="card position-relative">
-            <img class="card-img-top" src="./../../public/Screenshot_1.png"
+            <img class="card-img-top"
+                src="./../../public/Screenshot_1.png"
                 style="height: 280px; width: 100%; display: block;">
             <div class="card-body">
                 <h5 class="card-title">{{ articleProps.title.slice(0, 50) }}...</h5>
